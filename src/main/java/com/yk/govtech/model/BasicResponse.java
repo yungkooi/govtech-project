@@ -7,7 +7,7 @@ import com.yk.govtech.entity.User;
 import lombok.Data;
 
 @Data
-public class UserRetrievalResponse {
+public class BasicResponse {
 	
 	public List<User> results;
 

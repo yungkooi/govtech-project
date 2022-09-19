@@ -10,6 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.yk.govtech.entity.User;
 import com.yk.govtech.processor.CSVFileProcessor;
 import com.yk.govtech.repository.UserRepository;
+import com.yk.govtech.repository.UserRepositoryCustom;
 import com.yk.govtech.service.UserService;
 
 @Service
@@ -17,14 +18,14 @@ public class UserServiceImpl implements UserService {
 
 	@Autowired
 	UserRepository userRepository;
+	
+	@Autowired
+	UserRepositoryCustom userRepositoryCustom;
 
 	@Override
-	public List<User> getUsers() {
-		List<User> users = userRepository.findAll();
+	public List<User> getUsersByRequestParam(double min, double max, int offset, Integer limit, String sort) {
 		
-		//default
-		users.removeIf(user -> user.getSalary() > 4000);
-		return userRepository.findAll();
+		return userRepositoryCustom.findByRequestParam(min, max, offset, limit, sort);
 	}
 
 	@Override

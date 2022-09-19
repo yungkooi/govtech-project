@@ -8,7 +8,7 @@ import com.yk.govtech.entity.User;
 
 public interface UserService {
 	
-	List<User> getUsers();
+	List<User> getUsersByRequestParam(double min, double max, int offset, Integer limit, String sort);
 
 	void upload(MultipartFile file);
 

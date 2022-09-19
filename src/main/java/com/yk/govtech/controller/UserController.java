@@ -7,13 +7,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.yk.govtech.entity.User;
 import com.yk.govtech.model.UploadResponse;
-import com.yk.govtech.model.UserRetrievalResponse;
+import com.yk.govtech.model.BasicResponse;
 import com.yk.govtech.processor.CSVFileProcessor;
 import com.yk.govtech.service.UserService;
 
@@ -23,19 +24,24 @@ public class UserController {
 	@Autowired
 	UserService userService;
 	
-	//TODO: add request headers for min/max/offset/limit/sort
 	@GetMapping("/users")
-	public ResponseEntity<UserRetrievalResponse> getUsers() {
+	public ResponseEntity<BasicResponse> getUsers(
+			@RequestHeader(value = "min", defaultValue = "0") double min,
+			@RequestHeader(value = "max", defaultValue = "4000") double max,
+			@RequestHeader(value = "offset", defaultValue = "0") int offset,
+			@RequestHeader(value = "limit", required = false) Integer limit,
+			@RequestHeader(value = "sort", required = false) String sort
+			) {
 		
-		List<User> userList = userService.getUsers();
+		List<User> userList = userService.getUsersByRequestParam(min, max, offset, limit, sort);
 		
 		if (userList.isEmpty()) {
 			return new ResponseEntity<>(HttpStatus.NO_CONTENT);
 		}
 		
-		UserRetrievalResponse results = new UserRetrievalResponse();
-		results.setResults(userList);
-		return new ResponseEntity<>(results, HttpStatus.OK);
+		BasicResponse basicResponse = new BasicResponse();
+		basicResponse.setResults(userList);
+		return new ResponseEntity<>(basicResponse, HttpStatus.OK);
 	}
 	
 	@PostMapping("/upload")
