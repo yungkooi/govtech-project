@@ -1,0 +1,91 @@
+{
+	"info": {
+		"_postman_id": "78b6b6b7-9e0a-41b6-9c09-603d37ec78ba",
+		"name": "GovTech",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9087754"
+	},
+	"item": [
+		{
+			"name": "GET User",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "max",
+						"value": "10000",
+						"type": "text"
+					},
+					{
+						"key": "sort",
+						"value": "salary",
+						"type": "text"
+					},
+					{
+						"key": "min",
+						"value": "3000",
+						"type": "text"
+					},
+					{
+						"key": "offset",
+						"value": "1",
+						"type": "text"
+					},
+					{
+						"key": "limit",
+						"value": "1",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/govtech/users",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"govtech",
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Upload Users",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "/C:/Users/Yk/Desktop/Development Projects/YK-Workspace/govtech-project/sample_csv/users.csv"
+						},
+						{
+							"key": "Content-Type",
+							"value": "multipart/form-data",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/govtech/upload",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"govtech",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
