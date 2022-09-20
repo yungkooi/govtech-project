@@ -16,6 +16,6 @@ HTTP Request:
 - All request params are optional, so toggle them accordingly
 
 Sample CSV Files:
-users.csv -> Includes new users, existing user, user with 0 salary, user with negative salary 
-users2.csv -> Includes 2 valid users, user with invalid salary
-users3.csv -> Includes a new user, user with 0 salary, user with negative salary
+- users.csv -> Includes new users, existing user, user with 0 salary, user with negative salary 
+- users2.csv -> Includes 2 valid users, user with invalid salary
+- users3.csv -> Includes a new user, user with 0 salary, user with negative salary
