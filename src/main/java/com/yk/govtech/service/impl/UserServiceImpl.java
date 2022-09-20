@@ -10,7 +10,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.yk.govtech.entity.User;
 import com.yk.govtech.processor.CSVFileProcessor;
 import com.yk.govtech.repository.UserRepository;
-import com.yk.govtech.repository.UserRepositoryCustom;
+import com.yk.govtech.repository.custom.UserRepositoryCustom;
 import com.yk.govtech.service.UserService;
 
 @Service

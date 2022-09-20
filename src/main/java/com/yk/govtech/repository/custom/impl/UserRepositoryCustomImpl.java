@@ -1,4 +1,4 @@
-package com.yk.govtech.repository.impl;
+package com.yk.govtech.repository.custom.impl;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -15,7 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import com.yk.govtech.entity.User;
-import com.yk.govtech.repository.UserRepositoryCustom;
+import com.yk.govtech.repository.custom.UserRepositoryCustom;
 
 @Service
 public class UserRepositoryCustomImpl implements UserRepositoryCustom {

@@ -1,4 +1,4 @@
-package com.yk.govtech.repository;
+package com.yk.govtech.repository.custom;
 
 import java.util.List;
 
