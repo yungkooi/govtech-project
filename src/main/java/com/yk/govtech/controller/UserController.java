@@ -13,8 +13,9 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.yk.govtech.entity.User;
-import com.yk.govtech.model.UploadResponse;
+import com.yk.govtech.exception.BaseException;
 import com.yk.govtech.model.BasicResponse;
+import com.yk.govtech.model.UploadResponse;
 import com.yk.govtech.processor.CSVFileProcessor;
 import com.yk.govtech.service.UserService;
 
@@ -50,7 +51,7 @@ public class UserController {
 		UploadResponse uploadResponse = new UploadResponse();
 		
 		if (!CSVFileProcessor.isValidCSVFile(file)) {
-			return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+			throw new BaseException("Invalid file type");
 		}
 
 		userService.upload(file);

@@ -18,9 +18,7 @@ public class CSVFileProcessor {
 	
 	public static boolean isValidCSVFile(MultipartFile file) {
 		
-		boolean status = "text/csv".equalsIgnoreCase(file.getContentType()) ? true : false; 
-		
-		return status;
+		return "text/csv".equalsIgnoreCase(file.getContentType()) ? true : false;
 	}
 	
 	public static List<User> processCSVFile(InputStream inputStream) {
